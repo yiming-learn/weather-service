@@ -4,11 +4,67 @@
         Current Weather Information
       </div>
        <div class="search">
-          <input [(ngModel)]="searchItem" class="search-input" type="text" placeholder="Search a City">
-          <button class="search-button" (click)="findCities()">Search</button>
-       </div>    
+          <input [(ngModel)]="searchItem" (keyup)="hitEnter($event)" class="search-input" type="text" placeholder="Search a City">
+          <button class="search-button" (click)="findCities()">Search</button>  
+       </div>  
+       <div *ngIf="showNotFound" class="not-found">
+          Not Found. Please make sure you enter the correct city name.
+       </div>
     </div>
-    <div class="details">
-
+    <div *ngIf="showOptionBox" class="option-box"> 
+      <div *ngFor="let opt of optionList; let i = index" class="option-item" (click)="selectOptionItem(i)">
+         <div class="name-width">
+            {{opt.name + ', ' + opt.sys.country}}
+         </div>
+         <div class="temp-width"> 
+             {{opt.c_temp}}<span>&#8451;</span>
+         </div>
+         <div class="coord-width">
+             {{opt.coord.lat + ', ' + opt.coord.lon}}
+         </div>
+      </div>
+   </div>
+    <div class="details" *ngIf="selectedOption"> 
+       <div class="details-header">
+           <h1>{{selectedOption.name + ', ' + selectedOption.sys.country}}</h1> 
+       </div>
+       <div class="details-desp">
+           {{getDesp()}}
+       </div>
+       <div class="details-table">
+           <table class="table">
+             <tr>
+               <td>Temperature</td>
+               <td>
+                 {{selectedOption.c_temp}}
+                 <span>&#8451;</span>
+                </td>
+             </tr>
+             <tr>
+              <td>Humidity</td>
+              <td>
+                {{selectedOption.main.humidity + '%'}}
+              </td>
+            </tr>
+            <tr>
+              <td>Wind</td>
+              <td>
+                {{selectedOption.wind.speed + 'm/s'}}
+              </td>
+            </tr>
+            <tr>
+              <td>Rain</td>
+              <td>
+                {{selectedOption.rain && selectedOption.rain['1h'] ? selectedOption.rain['1h'] + 'mm/h' : 'N/A'}}
+              </td>
+            </tr>
+            <tr>
+              <td>Snow</td>
+              <td>
+                {{selectedOption.snow && selectedOption.snow['1h'] ? selectedOption.snow['1h'] + 'mm/h' : 'N/A'}}
+              </td>
+            </tr>
+           </table>
+       </div>
     </div>
 </div>

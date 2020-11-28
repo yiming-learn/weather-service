@@ -24,7 +24,7 @@ app.get('/v1/weather', (req, res) => {
   
   const options = {
     hostname: 'api.openweathermap.org',
-    path: `/data/2.5/weather?q=${city}&appid=${appid}`,
+    path: encodeURI(`/data/2.5/find?q=${city}&appid=${appid}&units=metric`),
     method: 'GET'
   }
 

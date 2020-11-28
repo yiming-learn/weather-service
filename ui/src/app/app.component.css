@@ -1,20 +1,20 @@
 .weather-container{
     display: block;
     width: 100vw;
-    height: 100vw; 
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header{
     display: flex;
     flex-direction: column;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 20px auto;
     background-color: #f2f2f2;
     align-items: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .title{
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0;
     font-size: 24px;
     color: #48484a;
     font-family: Arial, Helvetica, sans-serif;
@@ -47,9 +47,89 @@
     border-radius: 0 4px 4px 0;
     padding: 0 8px;
     height: 32px;
-    width: 90px;
+    min-width: 75px;
 }
 
 .search-input:focus, .search-button:focus{
     outline: none;
+}
+
+.not-found{
+    font-size: 10px;
+    position: relative;
+    top: 9px;
+    color: #8a8a8a;
+    width: 500px;
+    height: 0;
+}
+
+.option-box{
+    position: absolute;
+    width: 425px;
+    margin-left: calc(50vw - 250px);
+    height: min-content;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #48484a;
+    top: 109px;
+    background-color: white;
+    border: solid 1px #eeeeee;
+    border-radius: 0 0 4px 4px;
+}
+
+.option-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.option-item:hover{
+    background-color: #22a5f7;
+    color: white;
+}
+
+.name-width{
+    width: 110px;
+}
+
+.coord-width{
+    width: 115px;
+}
+
+.details{
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.details-header{
+    display: flex;
+    width: 100%;
+    line-height: 10px;
+}
+
+.details-desp{
+    width: 100%;
+    font-size: 12px;
+}
+
+.details-table{
+    width: 100%;
+    margin-top: 15px;
+}
+
+table{
+    width: 100%;
+}
+
+table, tr, td{
+    border: solid 1px #8a8a8a;
+}
+
+td{
+    padding: 8px;
 }
