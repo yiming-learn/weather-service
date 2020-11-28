@@ -28,7 +28,9 @@ export class AppComponent {
     }  
   }
 
-  
+  clickWeather(event){
+    this.showOptionBox = false;
+  }
 
   async findCities(){
      console.log(this.searchItem);
@@ -76,7 +78,8 @@ export class AppComponent {
     return Math.round((val - 32) * 9 / 5);
   } 
 
-  selectOptionItem(index){
+  selectOptionItem(index, event){
+    event.stopPropagation();
     this.showOptionBox = false;
     this.selectedOption = this.optionList[index];
   }

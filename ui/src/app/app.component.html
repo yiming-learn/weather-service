@@ -1,4 +1,4 @@
-<div class="weather-container">
+<div class="weather-container" (click)="clickWeather($event)">
     <div class="header">
       <div class="title">
         Current Weather Information
@@ -12,7 +12,7 @@
        </div>
     </div>
     <div *ngIf="showOptionBox" class="option-box"> 
-      <div *ngFor="let opt of optionList; let i = index" class="option-item" (click)="selectOptionItem(i)">
+      <div *ngFor="let opt of optionList; let i = index" class="option-item" (click)="selectOptionItem(i, $event)">
          <div class="name-width">
             {{opt.name + ', ' + opt.sys.country}}
          </div>
