@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "weather-ui"
+  "defaultProject": "weather-ui",
+  "cli": {
+    "analytics": "99f1d9b4-862b-43d9-9282-415248f9e78b"
+  }
 }

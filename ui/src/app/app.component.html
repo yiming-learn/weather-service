@@ -1,7 +1,10 @@
 <div class="weather-container">
     <div class="header">
+      <div class="title">
+        Current Weather Information
+      </div>
        <div class="search">
-          <input [(ngModel)]="searchItem" class="search-input" type="text" placeholder="Search City">
+          <input [(ngModel)]="searchItem" class="search-input" type="text" placeholder="Search a City">
           <button class="search-button" (click)="findCities()">Search</button>
        </div>    
     </div>
